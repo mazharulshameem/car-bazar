@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const SingleCar = ({ car }) => {
+const SingleCar = ({ car, setProducts }) => {
   return (
     <div className="">
       <div className=" bg-base-200 flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md mt-2 dark:bg-gray-900 dark:text-gray-100">
@@ -64,6 +64,7 @@ const SingleCar = ({ car }) => {
           </div>
           <div>
             <label
+              onClick={() => setProducts(car)}
               htmlFor="booking-modal"
               className=" bg-primary hover:bg-purple-600  text-white py-3 px-3"
             >
