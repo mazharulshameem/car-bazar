@@ -1,14 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 
 const LeftBar = () => {
-  const [categories, setCategories] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:5000/brands")
-      .then((res) => res.json())
-      .then((data) => setCategories(data));
-  }, []);
+  // const [categories, setCategories] = useState([]);
+  const { data: categories = [] } = useQuery({
+    queryKey: ["categories"],
+    queryFn: async () => {
+      const res = await fetch("http://localhost:5000/brands");
+      const data = await res.json();
+      return data;
+    },
+  });
+  // useEffect(() => {
+  //   fetch("http://localhost:5000/brands")
+  //     .then((res) => res.json())
+  //     .then((data) => setCategories(data));
+  // }, []);
   return (
     <div>
       <div className="">
