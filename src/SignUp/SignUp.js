@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import img from "../assets/images/green.webp";
 import { AuthContext } from "../Contexts/AuthProvider";
@@ -13,6 +13,7 @@ const SignUp = () => {
   } = useForm();
   const { createUser, googleSignIn, updateUser } = useContext(AuthContext);
   const [signUpError, setSignUpError] = useState("");
+  const navigate = useNavigate();
 
   const handleSignUp = (data) => {
     console.log(data);
@@ -22,6 +23,7 @@ const SignUp = () => {
         const user = result.user;
         console.log(user);
         toast.success("SignUp Successfully");
+        navigate("/");
 
         const userInfo = {
           displayName: data.name,

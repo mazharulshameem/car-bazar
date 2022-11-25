@@ -1,9 +1,33 @@
 import React, { useContext } from "react";
 import { AuthContext } from ".././../Contexts/AuthProvider";
 
-const BookingModal = ({ products }) => {
+const BookingModal = ({ product, setProduct }) => {
   const { user } = useContext(AuthContext);
-  const { title, original_price, resale_price, location } = products;
+  const { title, resale_price, location } = product;
+  const handleBooking = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const phone = form.phone.value;
+
+    console.log(name, email, phone);
+
+    const booking = {
+      product: title,
+      buyer: name,
+      resale_price,
+      location,
+      email,
+      phone,
+    };
+
+    // TODO: send data to the server
+    // and once data is saved then close the modal
+    // and display success toast
+    console.log(booking);
+    setProduct(null);
+  };
   return (
     <>
       <input type="checkbox" id="booking-modal" className="modal-toggle" />
@@ -16,7 +40,10 @@ const BookingModal = ({ products }) => {
             ✕
           </label>
           <h3 className="text-lg font-bold">{title}</h3>
-          <form onSubmit={""} className="grid grid-cols-1 gap-3 mt-10">
+          <form
+            onSubmit={handleBooking}
+            className="grid grid-cols-1 gap-3 mt-10"
+          >
             <div className="flex justify-evenly">
               <div>
                 <h3 className="text-sm font-bold ">

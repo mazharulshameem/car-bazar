@@ -33,12 +33,16 @@ const Navbar = ({ children }) => {
       {user?.uid ? (
         <>
           <li>
-            <button onClick={handleLogOut}>LOGOUT</button>
+            <button className="bg-white text-black" onClick={handleLogOut}>
+              LOGOUT
+            </button>
           </li>
         </>
       ) : (
         <li>
-          <Link to="/login">LOGIN</Link>
+          <Link className="bg-purple-400" to="/login">
+            LOGIN
+          </Link>
         </li>
       )}
       <div className="dropdown dropdown-end">

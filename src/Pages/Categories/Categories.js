@@ -5,7 +5,7 @@ import SingleCar from "./../SingleCar/SingleCar";
 
 const Categories = () => {
   const cars = useLoaderData();
-  const [products, setProducts] = useState(null);
+  const [product, setProduct] = useState(null);
 
   return (
     <div>
@@ -14,11 +14,13 @@ const Categories = () => {
           <SingleCar
             key={car._id}
             car={car}
-            setProducts={setProducts}
+            setProduct={setProduct}
           ></SingleCar>
         ))}
       </div>
-      {products && <BookingModal products={products}></BookingModal>}
+      {product && (
+        <BookingModal product={product} setProduct={setProduct}></BookingModal>
+      )}
     </div>
   );
 };
