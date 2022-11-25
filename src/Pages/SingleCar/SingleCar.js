@@ -4,25 +4,7 @@ import { Link } from "react-router-dom";
 const SingleCar = ({ car }) => {
   return (
     <div className="">
-      <div className=" bg-red-300 flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md mt-2 dark:bg-gray-900 dark:text-gray-100">
-        <div className="flex space-x-4">
-          <div className="flex flex-col space-y-1">
-            <a
-              rel="noopener noreferrer"
-              href="#"
-              className="text-sm font-semibold"
-            >
-              {/* {course.instructor} */}
-            </a>
-            <div className="flex">
-              {/* <FaStar className=""></FaStar> */}
-              {""}
-              <span className="text-xs dark:text-gray-600">
-                {/* {course.rating} */}
-              </span>
-            </div>
-          </div>
-        </div>
+      <div className=" bg-base-200 flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md mt-2 dark:bg-gray-900 dark:text-gray-100">
         <div>
           <img
             src={car.img}
@@ -33,31 +15,60 @@ const SingleCar = ({ car }) => {
           <p className="text-sm dark:text-gray-400">
             {car.description.slice(0, 100)}...
           </p>
+          <div className="flex justify-between pt-1">
+            <p className="text-sm font-bold dark:text-gray-400">
+              Used:{car.used_year} Years
+            </p>
+            <div className="flex">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
+                />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
+                />
+              </svg>
+              <p className="text-sm font-bold dark:text-gray-400">
+                {car.location}
+              </p>
+            </div>
+          </div>
         </div>
         <div className="flex flex-wrap justify-between">
           <div className="space-x-2">
             <button
               aria-label="Share this post"
               type="button"
-              className="p-2 text-center"
+              className="p-2 text-center font-semibold line-through"
             >
               ${car.original_price}
             </button>
             <button
               aria-label="Bookmark this post"
               type="button"
-              className="p-2"
+              className="p-2 font-semibold"
             >
               ${car.resale_price}
             </button>
           </div>
           <div>
-            <Link
-              // to={`/home/course/${course.id}`}
-              className="block  bg-teal-500 hover:bg-purple-600  shadow-lg text-white py-2 px-3"
+            <label
+              htmlFor="booking-modal"
+              className=" bg-primary hover:bg-purple-600  text-white py-3 px-3"
             >
-              See Details
-            </Link>
+              Book Now
+            </label>
           </div>
         </div>
       </div>

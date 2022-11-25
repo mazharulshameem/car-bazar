@@ -12,6 +12,9 @@ const LeftBar = () => {
   return (
     <div>
       <div className="">
+        <button className=" font-bold  text-center px-2 text-lg">
+          SEE USED CAR
+        </button>
         {categories.map((category) => (
           <p key={category.category_id}>
             <Link

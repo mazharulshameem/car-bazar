@@ -1,5 +1,6 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
+import BookingModal from "../BookingModal/BookingModal";
 import SingleCar from "./../SingleCar/SingleCar";
 
 const Categories = () => {
@@ -12,6 +13,7 @@ const Categories = () => {
           <SingleCar key={car._id} car={car}></SingleCar>
         ))}
       </div>
+      <BookingModal></BookingModal>
     </div>
   );
 };

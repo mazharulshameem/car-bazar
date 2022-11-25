@@ -26,7 +26,9 @@ const Banner = () => {
 
           <p></p>
           <div>
-            <h1 className="text-5xl font-bold">Choose Your Best Deal</h1>
+            <h1 className="text-5xl font-bold">
+              Your Best Dream Car <br></br>Just One Click Away!
+            </h1>
             <p className="py-6">
               There’s three things men always talk about ~ women, sports, and
               cars.I know a lot about cars, man. <br></br>I can look at any
