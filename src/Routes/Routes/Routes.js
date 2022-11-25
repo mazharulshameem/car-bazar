@@ -16,6 +16,15 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+        children: [
+          {
+            path: "/categories/:id",
+            loader: async ({ params }) =>
+              fetch(`http://localhost:5000/category/${params.id}`),
+
+            element: <Categories></Categories>,
+          },
+        ],
       },
       {
         path: "/login",
@@ -28,15 +37,6 @@ const router = createBrowserRouter([
       {
         path: "*",
         element: <ErrorPage></ErrorPage>,
-      },
-
-      {
-        path: "/categories",
-        element: <Categories></Categories>,
-      },
-      {
-        path: "/blog",
-        element: <Categories></Categories>,
       },
     ],
   },
