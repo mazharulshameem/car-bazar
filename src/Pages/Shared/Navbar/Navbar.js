@@ -24,7 +24,7 @@ const Navbar = ({ children }) => {
         <Link to="/about">ABOUT</Link>
       </li>
       <li>
-        <Link to="/dashboard">BLOG</Link>
+        <Link to="/blog">BLOG</Link>
       </li>
       <li>
         <Link to="/dashboard">DASHBOARD</Link>

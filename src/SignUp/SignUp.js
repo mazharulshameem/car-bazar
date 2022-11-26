@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import img from "../assets/images/green.webp";
 import { AuthContext } from "../Contexts/AuthProvider";
+import useToken from "../Hooks/useToken";
 
 const SignUp = () => {
   const {
@@ -13,7 +14,12 @@ const SignUp = () => {
   } = useForm();
   const { createUser, googleSignIn, updateUser } = useContext(AuthContext);
   const [signUpError, setSignUpError] = useState("");
+  const [createdUserEmail, setCreatedUserEmail] = useState("");
+  const [token] = useToken(createdUserEmail);
   const navigate = useNavigate();
+  if (token) {
+    navigate("/");
+  }
 
   const handleSignUp = (data) => {
     console.log(data);
@@ -29,7 +35,7 @@ const SignUp = () => {
         };
         updateUser(userInfo)
           .then(() => {
-            saveBuyer(data.name, data.email);
+            saveUser(data.name, data.email);
           })
           .catch((error) => console.log(error));
       })
@@ -46,31 +52,21 @@ const SignUp = () => {
       })
       .catch((err) => console.error(err));
   };
-  const saveBuyer = (name, email) => {
-    const buyer = { name, email };
-    fetch("http://localhost:5000/buyers", {
+  const saveUser = (name, email) => {
+    const user = { name, email };
+    fetch("http://localhost:5000/users", {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(buyer),
+      body: JSON.stringify(user),
     })
       .then((res) => res.json())
       .then((data) => {
-        getBuyerToken(email);
+        setCreatedUserEmail(email);
       });
   };
 
-  const getBuyerToken = (email) => {
-    fetch(`http://localhost:5000/jwt?email=${email}`)
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.accessToken) {
-          localStorage.setItem("accessToken", data.accessToken);
-          navigate("/");
-        }
-      });
-  };
   return (
     <div
       className="mt-1"
