@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import img from "../../assets/images/green.webp";
 import { AuthContext } from "../../Contexts/AuthProvider";
+import useToken from "../../Hooks/useToken";
 
 const Login = () => {
   const {
@@ -13,18 +14,24 @@ const Login = () => {
   } = useForm();
   const { signIn, googleSignIn } = useContext(AuthContext);
   const [loginError, setLoginError] = useState("");
+  const [loginUserEmail, setLoginUserEmail] = useState("");
+  const [token] = useToken(loginUserEmail);
   const location = useLocation();
   const navigate = useNavigate();
   const from = location.state?.from?.pathname || "/";
+  if (token) {
+    navigate(from, { replace: true });
+  }
   const handleLogIn = (data) => {
     setLoginError("");
-    // console.log(data);
+
     signIn(data.email, data.password)
       .then((result) => {
         const user = result.user;
         toast.success("Login Successfully");
-        navigate(from, { replace: true });
         console.log(user);
+        // navigate(from, { replace: true });
+        setLoginUserEmail(data.email);
       })
       .catch((error) => {
         console.log(error.message);
