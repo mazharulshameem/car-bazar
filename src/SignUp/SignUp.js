@@ -29,7 +29,7 @@ const SignUp = () => {
         };
         updateUser(userInfo)
           .then(() => {
-            navigate("/");
+            saveBuyer(data.name, data.email);
           })
           .catch((error) => console.log(error));
       })
@@ -46,7 +46,31 @@ const SignUp = () => {
       })
       .catch((err) => console.error(err));
   };
+  const saveBuyer = (name, email) => {
+    const buyer = { name, email };
+    fetch("http://localhost:5000/buyers", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(buyer),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        getBuyerToken(email);
+      });
+  };
 
+  const getBuyerToken = (email) => {
+    fetch(`http://localhost:5000/jwt?email=${email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.accessToken) {
+          localStorage.setItem("accessToken", data.accessToken);
+          navigate("/");
+        }
+      });
+  };
   return (
     <div
       className="mt-1"
