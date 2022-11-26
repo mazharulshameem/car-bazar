@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { toast } from "react-toastify";
 import { AuthContext } from ".././../Contexts/AuthProvider";
 
 const BookingModal = ({ product, setProduct }) => {
@@ -22,11 +23,23 @@ const BookingModal = ({ product, setProduct }) => {
       phone,
     };
 
-    // TODO: send data to the server
-    // and once data is saved then close the modal
-    // and display success toast
-    console.log(booking);
-    setProduct(null);
+    fetch("http://localhost:5000/bookings", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(booking),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.acknowledged) {
+          setProduct(null);
+          toast.success("Booking Confirmed..!");
+        } else {
+          toast.error(data.message);
+        }
+      });
   };
   return (
     <>
@@ -96,6 +109,7 @@ const BookingModal = ({ product, setProduct }) => {
             <input
               name="phone"
               type="text"
+              required
               placeholder="Phone Number"
               className="input w-full input-bordered"
             />
