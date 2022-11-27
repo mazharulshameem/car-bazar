@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../../Contexts/AuthProvider";
 import img from "../../../assets/images/cartoon.png";
+import logo from "./../../../assets/images/carlogo.png";
 
 const Navbar = ({ children }) => {
   const { user, userLogout } = useContext(AuthContext);
@@ -18,11 +19,12 @@ const Navbar = ({ children }) => {
         <Link to="/">HOME</Link>
       </li>
       <li>
-        <Link to="/categories">CATEGORIES</Link>
-      </li>
-      <li>
         <Link to="/about">ABOUT</Link>
       </li>
+      <li>
+        <Link to="/products">PRODUCTS</Link>
+      </li>
+
       <li>
         <Link to="/blog">BLOG</Link>
       </li>
@@ -99,7 +101,7 @@ const Navbar = ({ children }) => {
             </ul>
           </div>
           <Link to="/" className="btn btn-ghost normal-case text-xl text-white">
-            CAR BAZAR
+            <img src={logo} alt="" className="h-12 w-12" srcset="" />
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex text-white ">

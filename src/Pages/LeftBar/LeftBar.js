@@ -7,13 +7,13 @@ const LeftBar = () => {
   const { data: categories = [] } = useQuery({
     queryKey: ["categories"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/brands");
+      const res = await fetch("https://carbazar-server.vercel.app/brands");
       const data = await res.json();
       return data;
     },
   });
   // useEffect(() => {
-  //   fetch("http://localhost:5000/brands")
+  //   fetch("https://carbazar-server.vercel.app/brands")
   //     .then((res) => res.json())
   //     .then((data) => setCategories(data));
   // }, []);

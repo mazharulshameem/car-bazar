@@ -21,6 +21,7 @@ const Banner = () => {
               className=""
               src="https://media.giphy.com/media/OpQgcsLTyxjzN8JlY9/giphy.gif"
               // src="https://giphy.com/gifs/mercedesbenz-jViFeG4RhnvEepuWIG"
+              alt=""
             />
           </a>
 

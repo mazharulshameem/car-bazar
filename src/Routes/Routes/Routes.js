@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../../Layout/DashboardLayout";
 import Main from "../../Layout/Main";
+import About from "../../Pages/About/About";
 import Categories from "../../Pages/Categories/Categories";
 import AddProducts from "../../Pages/Dashboard/Dashboard/AddProducts/AddProducts";
 import AllBuyers from "../../Pages/Dashboard/Dashboard/AllBuyers";
@@ -10,6 +11,7 @@ import MyProducts from "../../Pages/Dashboard/MyProducts/MyProducts";
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
+import Products from "../../Pages/Products/Products";
 import DisplayError from "../../Pages/Shared/DisplayError/DisplayError";
 import SignUp from "../../SignUp/SignUp";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
@@ -27,7 +29,7 @@ const router = createBrowserRouter([
           {
             path: "/categories/:id",
             loader: async ({ params }) =>
-              fetch(`http://localhost:5000/category/${params.id}`),
+              fetch(`https://carbazar-server.vercel.app/category/${params.id}`),
 
             element: <Categories></Categories>,
           },
@@ -38,8 +40,16 @@ const router = createBrowserRouter([
         element: <Login></Login>,
       },
       {
+        path: "/products",
+        element: <Products></Products>,
+      },
+      {
         path: "/signup",
         element: <SignUp></SignUp>,
+      },
+      {
+        path: "/about",
+        element: <About></About>,
       },
       {
         path: "*",
@@ -76,7 +86,7 @@ const router = createBrowserRouter([
         path: "/dashboard/payment/:id",
         element: <Payment></Payment>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/bookings/${params.id}`),
+          fetch(`https://carbazar-server.vercel.app/bookings/${params.id}`),
       },
     ],
   },

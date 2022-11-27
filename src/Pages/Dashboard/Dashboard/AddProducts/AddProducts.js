@@ -19,7 +19,9 @@ const AddProducts = () => {
   const { data: categories, isLoading } = useQuery({
     queryKey: ["category"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/productsCategory");
+      const res = await fetch(
+        "https://carbazar-server.vercel.app/productsCategory"
+      );
       const data = await res.json();
       return data;
     },
@@ -50,7 +52,7 @@ const AddProducts = () => {
             location: data.location,
             used_year: data.used_year,
           };
-          fetch("http://localhost:5000/products", {
+          fetch("https://carbazar-server.vercel.app/products", {
             method: "POST",
             headers: {
               "content-type": "application/json",

@@ -9,7 +9,7 @@ const CheckoutForm = ({ booking }) => {
   const { resale_price, email, buyer } = booking;
 
   // useEffect(() => {
-  //   fetch("http://localhost:5000/create-payment-intent", {
+  //   fetch("https://carbazar-server.vercel.app/create-payment-intent", {
   //     method: "POST",
   //     headers: {
   //       "Content-Type": "application/json",

@@ -15,7 +15,7 @@ const MyProducts = () => {
     queryKey: ["products"],
     queryFn: async () => {
       try {
-        const res = await fetch("http://localhost:5000/products", {
+        const res = await fetch("https://carbazar-server.vercel.app/products", {
           headers: {
             authorization: `bearer ${localStorage.getItem("accessToken")}`,
           },
