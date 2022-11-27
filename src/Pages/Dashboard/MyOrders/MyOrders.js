@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { AuthContext } from "../../../Contexts/AuthProvider";
+import { Link } from "react-router-dom";
 
 const MyOrders = () => {
   const { user } = useContext(AuthContext);
@@ -32,12 +33,13 @@ const MyOrders = () => {
               <th> Resale Price</th>
               <th>Phone</th>
               <th>Location</th>
+              <th>Payment</th>
             </tr>
           </thead>
           <tbody>
             {bookings &&
               bookings?.map((booking, i) => (
-                <tr className="hover" key={booking._id}>
+                <tr className="" key={booking._id}>
                   <th>{i + 1}</th>
                   <td>{booking.buyer}</td>
                   <td>{booking.product}</td>
@@ -90,6 +92,17 @@ const MyOrders = () => {
                         {booking.location}
                       </div>
                     </div>
+                  </td>
+                  <td>
+                    {booking.resale_price && !booking.paid && (
+                      <Link to={`/dashboard/payment/${booking._id}`}>
+                        {" "}
+                        <button className="btn btn-primary">Pay</button>
+                      </Link>
+                    )}
+                    {booking.resale_price && booking.paid && (
+                      <button className="btn btn-primary">Paid</button>
+                    )}
                   </td>
                 </tr>
               ))}
