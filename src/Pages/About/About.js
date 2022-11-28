@@ -88,7 +88,7 @@ const About = () => {
               <img
                 src="https://media.giphy.com/media/3oriOia43pNRKuzKDe/giphy.gif"
                 alt=""
-                className="rounded-lg shadow-lg dark:bg-gray-500 aspect-video sm:min-h-96"
+                className="rounded-lg shadow-lg dark:bg-gray-500 aspect-video w-full h-72 "
               />
             </div>
           </div>

@@ -9,9 +9,7 @@ const Contact = () => {
             <h2 className="text-4xl font-bold text-primary lg:text-5xl">
               Let's talk!
             </h2>
-            <div className="text-secondary">
-              Vivamus in nisl metus? Phasellus.
-            </div>
+            <div className="text-secondary">About Our Car Bazar.</div>
           </div>
           <img
             src="https://media.giphy.com/media/xUA7aTKxZWcHEnAXoQ/giphy.gif"

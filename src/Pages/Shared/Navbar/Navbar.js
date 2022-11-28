@@ -14,23 +14,23 @@ const Navbar = ({ children }) => {
   };
   const menuItems = (
     <React.Fragment>
-      <li className="hover:underline">
+      <li className="hover:underline font-semibold">
         <Link to="/">HOME</Link>
       </li>
-      <li className="hover:underline">
+      <li className="hover:underline font-semibold">
         <Link to="/about">ABOUT</Link>
       </li>
-      <li className="hover:underline">
+      <li className="hover:underline font-semibold">
         <Link to="/products">PRODUCTS</Link>
       </li>
-      <li className="hover:underline">
+      <li className="hover:underline font-semibold">
         <Link to="/advertisement">ADVERTISEMENT</Link>
       </li>
 
-      <li className="hover:underline">
+      <li className="hover:underline font-semibold">
         <Link to="/blog">BLOG</Link>
       </li>
-      <li className="hover:underline">
+      <li className="hover:underline font-semibold">
         <Link to="/dashboard">DASHBOARD</Link>
       </li>
 
@@ -107,7 +107,7 @@ const Navbar = ({ children }) => {
           </div>
           <Link
             to="/"
-            className="btn btn-ghost normal-case text-3xl font-bold text-gradient-to-r from-primary"
+            className="btn btn-ghost normal-case text-2xl font-bold text-gradient-to-r from-primary sm:text-3xl"
           >
             <span className="text-secondary">CAR</span>
             {""}
@@ -137,14 +137,14 @@ const Navbar = ({ children }) => {
               d="M3 4.5h14.25M3 9h9.75M3 13.5h9.75m4.5-4.5v12m0 0l-3.75-3.75M17.25 21L21 17.25"
             />
           </svg>
-          <h1>Dashboard</h1>
+          <h1></h1>
         </label>
         <div className="mx-6">
           <label className="swap swap-rotate">
             <input type="checkbox" onClick={() => setDark(!dark)} />
 
             <svg
-              className="swap-on fill-current w-10 h-10 "
+              className="swap-on fill-current w-10 h-10  text-secondary"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
             >
@@ -152,7 +152,7 @@ const Navbar = ({ children }) => {
             </svg>
 
             <svg
-              className="swap-off fill-current w-10 h-10 "
+              className="swap-off fill-current w-10 h-10  text-secondary"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
             >

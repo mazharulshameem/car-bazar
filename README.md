@@ -26,3 +26,6 @@ React router|
 Use data Loader | React router dom| Toast | vercel | Hero Icons | Stripe Payment | Axios| Hook Register| Tan Query | Nodejs| MongoDB | ReactJs
 
 ## Admin Email And Password
+
+email:xexinom311@teknowa.com  
+password:r$4e#3W
