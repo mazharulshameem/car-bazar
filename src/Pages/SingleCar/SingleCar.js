@@ -65,9 +65,23 @@ const SingleCar = ({ car, setProduct }) => {
             <label
               onClick={() => setProduct(car)}
               htmlFor="booking-modal"
-              className=" bg-primary hover:bg-purple-600  text-white py-3 px-3"
+              className=" btn btn-outline bg-gradient-to-r from-secondary to-primary   text-white py-3 px-3"
             >
-              Book Now
+              Book Now {""}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+                />
+              </svg>
             </label>
           </div>
         </div>

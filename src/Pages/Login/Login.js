@@ -110,7 +110,7 @@ const Login = () => {
           </form>
           <span className="text-center ">
             New to Car Bazar{" "}
-            <Link className="text-purple-600 text-center" to="/signup">
+            <Link className="text-base-100 underline text-center" to="/signup">
               Create New Account
             </Link>
           </span>

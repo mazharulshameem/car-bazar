@@ -10,6 +10,7 @@ module.exports = {
           accent: "#3A4256",
           neutral: "#3D4451",
           "base-100": "#FFFFFF",
+          info: "#27272A",
         },
       },
       {
@@ -19,7 +20,8 @@ module.exports = {
           accent: "#000000",
           neutral: "#ffffff",
           "base-100": "#1F2937",
-          info: "#fde047",
+          info: "#27272A",
+          // info: "#fde047",
           success: "#1BBB70",
           warning: "#fcfafa",
           error: "#ffffff",

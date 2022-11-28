@@ -20,13 +20,13 @@ const LeftBar = () => {
   return (
     <div>
       <div className="">
-        <button className=" font-bold  text-center px-2 text-lg">
-          SEE USED CAR
+        <button className=" font-bold text-accent text-uppercase text-xl text-center justify-center items-center px-2 py-2">
+          CAR CATEGORY
         </button>
         {categories.map((category) => (
           <p key={category.category_id}>
             <Link
-              className="block border border-purple-900 bg-teal-400 lg:text-xl md:text-sm text-white hover:bg-black py-2 px-2 "
+              className="block border border-purple-900 btn btn-ghost gap-2  bg-gradient-to-r from-primary to-secondary  lg:text-xl md:text-sm text-white  py-2 px-2 "
               to={`/categories/${category.category_id}`}
             >
               {category.category_name}

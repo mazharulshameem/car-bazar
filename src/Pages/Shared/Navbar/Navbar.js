@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../../Contexts/AuthProvider";
 import img from "../../../assets/images/cartoon.png";
-import logo from "./../../../assets/images/carlogo.png";
 
 const Navbar = ({ children }) => {
   const { user, userLogout } = useContext(AuthContext);
@@ -15,34 +14,40 @@ const Navbar = ({ children }) => {
   };
   const menuItems = (
     <React.Fragment>
-      <li>
+      <li className="hover:underline">
         <Link to="/">HOME</Link>
       </li>
-      <li>
+      <li className="hover:underline">
         <Link to="/about">ABOUT</Link>
       </li>
-      <li>
+      <li className="hover:underline">
         <Link to="/products">PRODUCTS</Link>
       </li>
+      <li className="hover:underline">
+        <Link to="/advertisement">ADVERTISEMENT</Link>
+      </li>
 
-      <li>
+      <li className="hover:underline">
         <Link to="/blog">BLOG</Link>
       </li>
-      <li>
+      <li className="hover:underline">
         <Link to="/dashboard">DASHBOARD</Link>
       </li>
 
       {user?.uid ? (
         <>
           <li>
-            <button className="bg-white text-black" onClick={handleLogOut}>
+            <button className="btn btn-outline" onClick={handleLogOut}>
               LOGOUT
             </button>
           </li>
         </>
       ) : (
         <li>
-          <Link className="bg-purple-400" to="/login">
+          <Link
+            className=" btn btn-outline bg-gradient-to-r from-secondary  "
+            to="/login"
+          >
             LOGIN
           </Link>
         </li>
@@ -58,8 +63,8 @@ const Navbar = ({ children }) => {
           </div>
         </label>
         <ul
-          tabIndex={0}
-          className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+          tabIndex={1}
+          className="menu menu-compact dropdown-content mt-3  p-2 shadow bg-base-100 rounded-box w-52"
         >
           <li>
             <a className="justify-between">
@@ -74,10 +79,10 @@ const Navbar = ({ children }) => {
 
   return (
     <div data-theme={dark ? "dark" : "light"}>
-      <div className="navbar bg-accent flex justify-between py-3 ">
+      <div className="navbar bg-base-100 flex justify-between py-3 ">
         <div className="navbar-start">
           <div className="dropdown">
-            <label tabIndex={0} className="btn btn-primary lg:hidden">
+            <label tabIndex={0} className="btn btn-outline lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -94,24 +99,29 @@ const Navbar = ({ children }) => {
               </svg>
             </label>
             <ul
-              tabIndex={1}
+              tabIndex={2}
               className="menu menu-compact dropdown-content mt-3 p-2 shadow  bg-base-100 rounded-box w-52"
             >
               {menuItems}
             </ul>
           </div>
-          <Link to="/" className="btn btn-ghost normal-case text-xl text-white">
-            <img src={logo} alt="" className="h-12 w-12" srcset="" />
+          <Link
+            to="/"
+            className="btn btn-ghost normal-case text-3xl font-bold text-gradient-to-r from-primary"
+          >
+            <span className="text-secondary">CAR</span>
+            {""}
+            <div>{""} BAZAAR</div>
           </Link>
         </div>
-        <div className="navbar-center hidden lg:flex text-white ">
+        <div className="navbar-center hidden lg:flex  ">
           <ul className="menu menu-horizontal p-0">{menuItems}</ul>
         </div>
 
         <label
           htmlFor="dashboard-drawer"
-          tabIndex={2}
-          className="btn btn-white lg:hidden"
+          tabIndex={3}
+          className="btn btn-outline lg:hidden"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -134,7 +144,7 @@ const Navbar = ({ children }) => {
             <input type="checkbox" onClick={() => setDark(!dark)} />
 
             <svg
-              className="swap-on fill-current w-10 h-10 text-white"
+              className="swap-on fill-current w-10 h-10 "
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
             >
@@ -142,7 +152,7 @@ const Navbar = ({ children }) => {
             </svg>
 
             <svg
-              className="swap-off fill-current w-10 h-10 text-white"
+              className="swap-off fill-current w-10 h-10 "
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
             >

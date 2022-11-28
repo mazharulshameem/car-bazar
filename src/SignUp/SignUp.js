@@ -149,7 +149,7 @@ const SignUp = () => {
           {signUpError && <p className="text-red-700">{signUpError}</p>}
           <span className="text-center ">
             Already have an account yet?{" "}
-            <Link className="text-purple-600 text-center" to="/login">
+            <Link className="text-base-100 underline  text-center" to="/login">
               LOG IN
             </Link>
           </span>
